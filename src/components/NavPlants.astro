@@ -39,7 +39,14 @@
         })
     })
 
-    
+    window.addEventListener('resize', ()=>{
+        if ( window.innerWidth < 768 ) {
+                closeMenu()
+            }
+        else {
+            menu.style.transform = "translateY(0)"
+        }
+    })
 
 </script>
 

@@ -1,0 +1,43 @@
+---
+import CardOne from "./cards/CardOne.astro";
+import CardTwo from "./cards/CardTwo.astro";
+import CardThree from "./cards/CardThree.astro"
+---
+
+<section id="services" class="min-h-screen md:max-h-[1080px] w-full max-w-[1280px] mx-auto pb-4 mb-4 md:grid md:place-content-center">
+    <h2 class="text-center pt-[20%] md:p-0 text-xl font-semibold">LATEST ARTICLES</h2>
+    <span class="block h-[2px] w-[10%] max-w-20 bg-[var(--primary-ligth)] rounded-2xl mt-[3%] md:mt-[2%]  mb-[7%] md:mb-[4%] mx-auto"></span>
+    <div class="w-[90%] mx-auto">
+        <CardOne
+        src="/nature.webp"
+        alt="img alt"
+        title="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+        />
+
+        <CardTwo
+        src="/nature.webp"
+        alt="img alt"
+        title="ARTICLE TITLE"
+        author="Ali AlPes"
+        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, cum? Incidunt voluptatem vel eos quasi nostrum, vero laboriosam debitis!"
+        />
+        <CardThree 
+        title="CARD TITLE"
+        frontText="Lorem ipsum sit amet..."
+        backText="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad quisquam laboriosam vel impedit nulla magni voluptate nisi aperiam natus quis."
+        srcFront="/nature.webp"
+        altFront="/nature.webp"
+        srcBack="/nature.webp"
+        altBack="alt pic"
+        />
+    </div>
+</section>
+
+<style>
+    section div {
+        display: grid;
+        gap: 1rem;
+        grid-auto-rows: 25rem;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    }
+</style>

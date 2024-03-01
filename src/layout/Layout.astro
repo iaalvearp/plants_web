@@ -1,0 +1,65 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+
+	:root {
+		--primary-ligth: rgb(84 91 84);
+		--secundary-ligth: rgb(230 170 104);
+		--bg-ligth: rgb(244 244 249);
+		--accent-ligth: rgb(41 177 178);
+		--nav-bg: rgb(232,231,227);
+
+		--primary-dark: rgb(244 244 249);
+		--secundary-dark: rgb(230 170 104);
+		--hover-dark: rgb(18 22 24);
+		--accent-dark: rgb(41 177 178);
+
+		--current-color: var(--primary-ligth);
+	}
+	* {
+		font-family: 'Montserrat', sans-serif;
+		color: var(--current-color);
+	}
+
+	@keyframes show {
+		from {
+			opacity: 0;
+			transform: translateY(50%);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	.fadeIn {
+		view-timeline-name: --image;
+		view-timeline-axis: block;
+		
+		animation-timeline: --image;
+		animation-name: show;
+
+		animation-range: entry 25% cover 50%;
+		animation-fill-mode: both;
+	}
+
+</style>

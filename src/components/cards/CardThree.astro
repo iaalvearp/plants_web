@@ -1,0 +1,55 @@
+---
+import BtnArrow from "../buttons/BtnArrow.astro"
+const {title, frontText, backText, srcFront, altFront, srcBack, altBack} = Astro.props
+---
+
+<article class="fadeIn h-full w-full rounded cursor-default duration-1000">
+    <div class="px-[5%] py-[5%] h-full w-full m-auto rounded grid grid-cols-1 grid-rows-1">
+        <div class="front relative col-start-1 col-end-2 row-start-1 row-end-2 overflow-hidden h-full w-full rounded">
+            <img class="absolute h-full w-auto object-center object-cover z-0" src={srcFront} alt={altFront}>
+            <span class="absolute h-full w-full bg-black/30 z-10"></span>
+            <div class="absolute grid place-content-center inset-0 m-auto z-[15]">
+                <h3 class="text-4xl font-semibold text-center text-[var(--secundary-ligth)]">{title}</h3>
+                <p class="text-center text-xl text-[--bg-ligth]">{frontText}</p>
+            </div>
+        </div>
+        <div class="back relative col-start-1 col-end-2 row-start-1 row-end-2 overflow-hidden h-full w-full rounded bg-[var(--nav-bg)] grid grid-rows-2">
+            <div class="pic overflow-hidden row-start-1 row-end-2 z-10">
+                <img src={srcBack} alt={altBack}>
+            </div>
+            <div class="row-start-2 row-end-3 grid gap-2 place-content-center w-[90%] mx-auto z-0">
+                <h3 class="font-semibold text-[var(--secundary-ligth)]">{title}</h3>
+                <p class="text-pretty text-sm">{backText}</p>
+                <BtnArrow 
+                text="Read more"
+                />
+            </div>
+        </div>
+    </div>
+</article>
+
+<style>
+    article {
+        box-shadow: 1px 1px 3px;
+    }
+    .front, .back {
+        backface-visibility: hidden;
+    }
+    .front {
+        transform: perspective(30rem) rotateY(0deg);
+        transition: transform 1s;
+    }
+    .back {
+        transform: perspective(30rem) rotateY(180deg);
+        transition: transform 1s;
+    }
+    .back .pic {
+        clip-path: ellipse(98% 63% at 50% 34%);
+    }
+    article:hover div .front {
+        transform: perspective(30rem) rotateY(180deg);
+    }
+    article:hover div .back {
+        transform: perspective(30rem) rotateY(360deg);
+    }
+</style>

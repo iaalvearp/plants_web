@@ -1,0 +1,27 @@
+---
+const {title, author, text, src, alt} = Astro.props
+import ReadMoreBtn from "../buttons/ReadMoreBtn.astro"
+---
+
+<article class="fadeIn w-full mx-auto bg-[var(--nav-bg)] rounded-sm cursor-default hover:-translate-y-1 duration-300 overflow-hidden">
+    <img src={src} alt={alt} class="h-full w-full max-h-48 aspect-video object-cover object-left-top">
+    <div class="grid grid-rows-[min-content] items-center pt-2 pb-3">
+        <h3 class="w-[90%] mx-auto font-semibold text-[var(--secundary-ligth)]">{title}</h3>
+        <h5 class="w-[90%] mx-auto text-sm">By: <strong>{author}</strong></h5>
+        <span class="block h-[2px] w-[10%] max-w-20 bg-[var(--primary-ligth)] rounded-2xl ml-[5%] mb-[2%] mt-[1%]"></span>
+        <p class="w-[90%] mx-auto text-pretty text-sm">{text}</p>
+        <ReadMoreBtn class="max-w-[90%] mx-auto ml-[5%] py-1 px-10 bg-[var(--primary-ligth)] rounded-sm text-center text-[var(--bg-ligth)] active:scale-90 cursor-pointer mt-1 border-[var(--primary-ligth)] border-2 hover:bg-[var(--bg-ligth)] duration-300 hover:text-[var(--primary-ligth)] hover:font-semibold">Read more</ReadMoreBtn>
+    </div>
+</article>
+
+<style>
+    article {
+        box-shadow: 1px 1px 3px;
+        display: grid;
+        grid-template-rows: min-content;
+    }
+    article:hover {
+        box-shadow: 5px 5px 1px;
+    }
+    
+</style>

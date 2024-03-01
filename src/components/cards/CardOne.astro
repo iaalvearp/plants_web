@@ -1,0 +1,24 @@
+---
+const {title, src, alt} = Astro.props
+---
+
+<article class="fadeIn w-full grid justify-items-center mx-auto bg-[var(--nav-bg)] rounded-sm cursor-default hover:-translate-y-1 duration-300">
+    <div class="h-full max-h-48 w-full aspect-[4/3] overflow-hidden">
+        <img src={src} alt={alt} class="h-full w-full scale-100 duration-500 object-cover object-left-top">
+    </div>
+    <span class="block h-[2px] w-[10%] max-w-20 bg-[var(--primary-ligth)] rounded-2xl mt-[10%] mb-[15%]"></span>
+    <h3 class="text-center w-[90%] text-pretty font-semibold">{title}</h3>
+</article>
+
+<style>
+    article {
+        box-shadow: 1px 1px 3px;
+        grid-auto-rows: min-content;
+    }
+    article:hover {
+        box-shadow: 5px 5px 1px;
+    }
+    article:hover div img {
+        transform: scale(1.5);
+    }
+</style>
